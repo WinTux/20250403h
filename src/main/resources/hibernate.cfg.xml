@@ -15,7 +15,7 @@
         <property name="format_sql">true</property>
  
         <property name="hibernate.hbm2ddl.auto">validate</property>
-        <mapping class="com.pepito.Hib.Models.Estudiante" />
-        <mapping class="com.pepito.Hib.Models.Carrera" />
+        <mapping class="com.wintux.jakarta.models.Estudiante" />
+        <mapping class="com.wintux.jakarta.models.Carrera" />
     	</session-factory>
     </hibernate-configuration>
