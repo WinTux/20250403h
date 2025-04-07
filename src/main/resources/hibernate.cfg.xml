@@ -17,5 +17,6 @@
         <property name="hibernate.hbm2ddl.auto">validate</property>
         <mapping class="com.wintux.jakarta.models.Estudiante" />
         <mapping class="com.wintux.jakarta.models.Carrera" />
+        <mapping resource="Asignatura.hbm.xml"/>
     	</session-factory>
     </hibernate-configuration>
