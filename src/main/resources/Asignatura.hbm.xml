@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC 
-"-//Hibernate/Hibernate Mapping DTD//EN"
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "https://hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping schema="pregrado">
@@ -8,9 +8,17 @@
       <id name = "Sigla" type = "string" column = "Sigla" length="6">
       </id>
       
-      <property name = "firstName" column = "first_name" type = "string"/>
-      <property name = "lastName" column = "last_name" type = "string"/>
-      <property name = "salary" column = "salary" type = "int"/>
-      
+      <property name = "Titulo" column = "Titulo" type = "string"/>
+      <property name = "Descripcion" column = "Descripcion" type = "text"/>
+      <property name = "Creditos" column = "Creditos" type = "int"/>
+      <many-to-one name="carrerita" 
+      	class="com.wintux.jakarta.models.Carrera"
+      	column="CarreraID"/>
+      <set name="Inscripciones"
+      	table="Inscripcion"
+      	cascade="all-delete-orphan">
+      	<key column="AsignaturaID"/>
+      	<one-to-many class="com.wintux.jakarta.models.Inscripcion"/>
+      </set>
    </class>
 </hibernate-mapping>

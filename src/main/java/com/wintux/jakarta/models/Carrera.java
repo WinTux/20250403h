@@ -21,6 +21,22 @@ public class Carrera implements Serializable{
 	private String Edificio;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="carr", targetEntity=Estudiante.class)
 	private Set estudiantes;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="carrerita", targetEntity=Asignatura.class)
+	private Set asignaturas;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="carr", targetEntity=Docente.class)
+	private Set docentes;
+	public Set getDocentes() {
+		return docentes;
+	}
+	public void setDocentes(Set docentes) {
+		this.docentes = docentes;
+	}
+	public Set getAsignaturas() {
+		return asignaturas;
+	}
+	public void setAsignaturas(Set asignaturas) {
+		this.asignaturas = asignaturas;
+	}
 	public Set getEstudiantes() {
 		return estudiantes;
 	}

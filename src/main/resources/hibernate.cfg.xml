@@ -18,5 +18,7 @@
         <mapping class="com.wintux.jakarta.models.Estudiante" />
         <mapping class="com.wintux.jakarta.models.Carrera" />
         <mapping resource="Asignatura.hbm.xml"/>
+        <mapping resource="Inscripcion.hbm.xml"/>
+        <mapping class="com.wintux.jakarta.models.Docente" />
     	</session-factory>
     </hibernate-configuration>
