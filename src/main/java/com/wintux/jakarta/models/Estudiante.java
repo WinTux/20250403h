@@ -2,6 +2,7 @@ package com.wintux.jakarta.models;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="Estudiante", schema="pregrado")
@@ -24,6 +26,8 @@ public class Estudiante implements Serializable{
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="CarreraID")
 	private Carrera carr;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="est", targetEntity=Inscripcion.class)
+	private Set inscripciones;
 	public void setCarrera(Carrera carrera) {
 		this.carr = carrera;
 	}
