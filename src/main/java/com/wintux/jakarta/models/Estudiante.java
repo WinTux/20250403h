@@ -23,7 +23,7 @@ public class Estudiante implements Serializable{
 	private String Password;
 	private String Email;
 	private Boolean Estado;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="CarreraID")
 	private Carrera carr;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="est", targetEntity=Inscripcion.class)
