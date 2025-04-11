@@ -13,7 +13,16 @@ public class EstudianteDAO {
     // Obtener a todos los estudiantes
     public List<Estudiante> obtenerTodosEst() {
         try (Session session = HibernateUtil.getSessionfactory().openSession()) {
-            Query<Estudiante> query = session.createQuery("FROM Estudiante", Estudiante.class);
+            Query<Estudiante> query = session.createQuery("FROM Estudiante", Estudiante.class);// FROM Estudiante e LEFT JOIN FETCH e.carr
+            return query.list();
+        }
+    }
+    // Obteniendo estudiantes por intervalo de matricula
+    public List<Estudiante> obtenerEstsEntreMatriculas(int min, int max) {
+        try (Session session = HibernateUtil.getSessionfactory().openSession()) {
+            Query<Estudiante> query = session.createQuery("FROM Estudiante e WHERE e.Matricula >= :a AND e.Matricula <= :b", Estudiante.class);// FROM Estudiante e LEFT JOIN FETCH e.carr
+            query.setParameter("a", min);
+            query.setParameter("b", max);
             return query.list();
         }
     }

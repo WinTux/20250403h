@@ -33,6 +33,9 @@ public class EstudianteController extends HttpServlet {
 		EstudianteDAO dao = new EstudianteDAO();
 		List<Estudiante> estudiantes = dao.obtenerTodosEst();
 		request.setAttribute("ests", estudiantes);
+		// Agregar nuevo atributo a request (intervalo)
+		List<Estudiante> estudiantesRango = dao.obtenerEstsEntreMatriculas(60060,60070);
+		request.setAttribute("estsRango", estudiantesRango);
 		request
 			.getRequestDispatcher("tablaEstudiantes.jsp")
 			.forward(request, response);
