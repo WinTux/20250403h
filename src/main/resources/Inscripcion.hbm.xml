@@ -13,9 +13,13 @@
       <property name = "Calificacion" column = "Calificacion" type = "big_decimal"/>
       <many-to-one name="asig" 
       	class="com.wintux.jakarta.models.Asignatura"
-      	column="AsignaturaID" not-found="ignore"/>
+      	column="AsignaturaID" not-found="ignore"
+      	fetch="join"
+        lazy="false"/><!-- Las últimas líneas son para cargar datos -->
       <many-to-one name="est" 
       	class="com.wintux.jakarta.models.Estudiante"
-      	column="EstudianteID" not-found="ignore"/>
+      	column="EstudianteID" not-found="ignore"
+      	fetch="join"
+        lazy="false"/>
    </class>
 </hibernate-mapping>
